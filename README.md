@@ -73,3 +73,21 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+## Run rtp-simulation.test.ts
+
+```bash
+npx vitest run tests/rtp-simulation.test.ts
+
+```
+RTP with odds 5,4,3,2 is approximately 166%
+
+## Run rtp-95.test.ts
+
+```bash
+npx vitest run tests/rtp-95.test.ts
+
+```
+RTP 95% - odds: 2.8565432, 2.28523456, 1.71392592, 1.14261728,
+coefficient: 0.5720782458515294
