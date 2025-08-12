@@ -1,3 +1,5 @@
+**Live App**: [https://balut-dice-game.web.app/game/chart](https://balut-dice-game.web.app/game/chart) 
+
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
