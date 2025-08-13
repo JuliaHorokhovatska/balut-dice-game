@@ -83,7 +83,7 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 npx vitest run tests/rtp-simulation.test.ts
 
 ```
-RTP with odds 5,4,3,2 is approximately 166%
+RTP with odds 5,4,3,2 is approximately 197%
 
 ## Run rtp-95.test.ts
 
@@ -91,5 +91,5 @@ RTP with odds 5,4,3,2 is approximately 166%
 npx vitest run tests/rtp-95.test.ts
 
 ```
-RTP 95% - odds: 2.8565432, 2.28523456, 1.71392592, 1.14261728,
-coefficient: 0.5720782458515294
+RTP 95% - odds: 2.4094845427762133, 1.9275876342209706, 1.4456907256657279, 0.9637938171104853,
+coefficient: 0.48185291211611536

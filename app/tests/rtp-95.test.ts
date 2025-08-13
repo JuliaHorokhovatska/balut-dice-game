@@ -13,7 +13,7 @@ function getMultiplier(dice: number[]): number {
   if (values.includes(5)) return 4; // Balut (5 of a kind)
   if (isStraight) return 5; // Straight
   if (values.includes(3) && values.includes(2)) return 3; // Full house
-  if (values.includes(2)) return 2; // Pair
+  if (values.includes(2) || values.includes(3)) return 2; // Pair
   return 0; // Other
 }
 
@@ -44,7 +44,7 @@ describe("RTP Simulation", () => {
     console.log(`Simulated ${ROUNDS} rounds`);
     console.log(`RTP: ${RTP.toFixed(2)}%`);
     const rtpCoif = 95 / RTP;
-    console.log(`RTP Coef: ${rtpCoif}`);
+    console.log(`RTP Coif: ${rtpCoif}`);
 
     // Simulate 95% RTP
     for (let i = 0; i < ROUNDS; i++) {
@@ -62,6 +62,7 @@ describe("RTP Simulation", () => {
     const RTP95 = (totalWins95 / totalBets95) * 100;
     console.log(`Simulated ${ROUNDS} rounds`);
     console.log(`RTP95: ${RTP95.toFixed(2)}%`);
+    console.log(`New coif: 5 => ${5 * rtpCoif}, 4 => ${4 * rtpCoif}, 3 => ${3 * rtpCoif}, 2 => ${2 * rtpCoif}`);
    
     expect(RTP).toBeGreaterThan(0); // just to ensure test runs
   });
