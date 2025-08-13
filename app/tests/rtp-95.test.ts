@@ -13,7 +13,7 @@ function getMultiplier(dice: number[]): number {
   if (values.includes(5)) return 4; // Balut (5 of a kind)
   if (isStraight) return 5; // Straight
   if (values.includes(3) && values.includes(2)) return 3; // Full house
-  if (values.includes(2) || values.includes(3)) return 2; // Pair
+  if (values.includes(2) || values.includes(3) || values.includes(4)) return 2; // Pair
   return 0; // Other
 }
 
