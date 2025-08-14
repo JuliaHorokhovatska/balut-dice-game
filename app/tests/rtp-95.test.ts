@@ -7,7 +7,7 @@ function getMultiplier(dice: number[]): number {
 
   const sorted = [...dice].sort((a, b) => a - b);
   const isStraight = sorted.every(
-    (v, i, arr) => i === 0 || v === arr[i - 1] + 1
+    (v, i, arr) => i === 0 || v === (arr[i - 1] || 0) + 1
   );
 
   if (values.includes(5)) return 4; // Balut (5 of a kind)

@@ -22,8 +22,12 @@ export const useGameStore = defineStore("game", {
       return state.history.reduce((sum, h) => sum + (h.bet || 0), 0);
     },
     RTP(state): number {
-      if (state.ALL_USER_BETS === 0) return 0;
-      return (state.ALL_USER_WINS / state.ALL_USER_BETS) * 100;
+      const bets = Number(this.ALL_USER_BETS) || 0;
+      const wins = Number(this.ALL_USER_WINS) || 0;
+
+      if (bets <= 0) return 0;
+
+      return (wins / bets) * 100;
     },
   },
   actions: {
@@ -68,7 +72,7 @@ export const useGameStore = defineStore("game", {
 
       const sorted = [...dice].sort((a, b) => a - b);
       const isStraight = sorted.every(
-        (v, i, arr) => i === 0 || v === arr[i - 1] + 1
+        (v, i, arr) => i === 0 || v === (arr[i - 1] || 0) + 1
       );
 
       console.log('counts', counts, 'values', values, 'isStraight', isStraight);
@@ -76,7 +80,8 @@ export const useGameStore = defineStore("game", {
       if (values.includes(5)) return 4; // Balut (5 of a kind)
       if (isStraight) return 5; // Straight
       if (values.includes(3) && values.includes(2)) return 3; // Full house
-      if (values.includes(2) || values.includes(3) || values.includes(4)) return 2; // Pair
+      if (values.includes(2) || values.includes(3) || values.includes(4))
+        return 2; // Pair
       return 0; // Other
     },
   },
